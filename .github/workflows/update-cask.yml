@@ -1,0 +1,75 @@
+name: Update Cask
+
+on:
+  push:
+    tags:
+      - 'v*'
+  workflow_dispatch:
+    inputs:
+      version:
+        description: 'Version to update to (e.g., 1.2.1)'
+        required: true
+        type: string
+
+jobs:
+  update-cask:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout tap repository
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Extract version from tag or input
+        id: version
+        run: |
+          if [[ "${{ github.event_name }}" == "push" ]]; then
+            VERSION=${{ github.ref_name }}
+            # Remove 'v' prefix if present
+            VERSION=${VERSION#v}
+          else
+            VERSION="${{ github.event.inputs.version }}"
+          fi
+          echo "version=$VERSION" >> $GITHUB_OUTPUT
+
+      - name: Download DMG and calculate SHA256
+        id: download
+        run: |
+          VERSION="${{ steps.version.outputs.version }}"
+          DMG_URL="https://github.com/arjunkomath/trace/releases/download/v${VERSION}/Trace-${VERSION}.dmg"
+          
+          echo "Downloading DMG from: $DMG_URL"
+          
+          # Download the DMG file
+          curl -L -f -o trace.dmg "$DMG_URL" || {
+            echo "Failed to download DMG from $DMG_URL"
+            exit 1
+          }
+          
+          # Calculate SHA256
+          SHA256=$(shasum -a 256 trace.dmg | cut -d ' ' -f 1)
+          echo "SHA256: $SHA256"
+          echo "sha256=$SHA256" >> $GITHUB_OUTPUT
+
+      - name: Update cask file
+        run: |
+          VERSION="${{ steps.version.outputs.version }}"
+          SHA256="${{ steps.download.outputs.sha256 }}"
+          
+          echo "Updating cask with version: $VERSION and SHA256: $SHA256"
+          
+          # Update version
+          sed -i "s/version \".*\"/version \"$VERSION\"/" Casks/trace.rb
+          
+          # Update sha256
+          sed -i "s/sha256 :no_check/sha256 \"$SHA256\"/" Casks/trace.rb
+          sed -i "s/sha256 \".*\"/sha256 \"$SHA256\"/" Casks/trace.rb
+
+      - name: Commit and push changes
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add Casks/trace.rb
+          git commit -m "Update Trace to version ${{ steps.version.outputs.version }}" || exit 0
+          git push
