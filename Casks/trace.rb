@@ -18,10 +18,9 @@ cask "trace" do
   app "Trace.app"
 
   zap trash: [
-    "~/Library/Application Support/com.techulus.trace",
+    "~/Library/Application Support/Trace",
     "~/Library/Caches/com.techulus.trace",
     "~/Library/HTTPStorages/com.techulus.trace",
-    "~/Library/Preferences/com.techulus.trace.plist",
-    "~/Library/Saved Application State/com.techulus.trace.savedState",
+    "~/Library/Preferences/com.techulus.trace.plist"
   ]
 end
