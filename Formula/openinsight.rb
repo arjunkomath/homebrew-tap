@@ -5,13 +5,13 @@
 class Openinsight < Formula
   desc "Query your database with natural language"
   homepage "https://github.com/arjunkomath/openinsight"
-  version "0.9.0"
+  version "0.10.0"
   license "MIT"
 
   on_macos do
     if Hardware::CPU.arm?
-      url "https://github.com/arjunkomath/openinsight/releases/download/v0.9.0/openinsight-darwin-arm64.tar.gz"
-      sha256 "9c44289a232ed3b9242f41d5e9d28371e1e83663337ae6d4eff5b5b7601ddf1e"
+      url "https://github.com/arjunkomath/openinsight/releases/download/v0.10.0/openinsight-darwin-arm64.tar.gz"
+      sha256 "da3bb77564d6589391ab9d1cdcce0415369f5f8dbdf8d8f819b0eaf8c10af6ad"
 
       def install
         bin.install "openinsight"
@@ -22,8 +22,8 @@ class Openinsight < Formula
 
   on_linux do
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/arjunkomath/openinsight/releases/download/v0.9.0/openinsight-linux-arm64.tar.gz"
-      sha256 "3b90bbab3ae14dd682e36892b5f4ae4cddb994dfd079b38b9acc68349f9b5e68"
+      url "https://github.com/arjunkomath/openinsight/releases/download/v0.10.0/openinsight-linux-arm64.tar.gz"
+      sha256 "84a2f96640407403953dc9fa08238faba9e50886416fe4c4d14634e286d1d23c"
 
       def install
         bin.install "openinsight"
@@ -31,8 +31,8 @@ class Openinsight < Formula
     end
 
     if Hardware::CPU.intel? && Hardware::CPU.is_64_bit?
-      url "https://github.com/arjunkomath/openinsight/releases/download/v0.9.0/openinsight-linux-x64.tar.gz"
-      sha256 "26c284e001ffdea40132b408b0b854c51b7c7ef71b1da788fdbaa2557a7dc5d7"
+      url "https://github.com/arjunkomath/openinsight/releases/download/v0.10.0/openinsight-linux-x64.tar.gz"
+      sha256 "378219ebee24ead320c94992ca5ed22b672fbc7e4b15529c62f14e5fecd69746"
 
       def install
         bin.install "openinsight"
