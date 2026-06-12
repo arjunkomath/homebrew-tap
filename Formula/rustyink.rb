@@ -1,25 +1,25 @@
 class Rustyink < Formula
   desc "Blazing fast static site generator"
   homepage "https://rustyink.techulus.xyz"
-  version "0.3.1"
+  version "0.4.0"
   if OS.mac?
     if Hardware::CPU.arm?
-      url "https://github.com/arjunkomath/RustyInk/releases/download/v0.3.1/rustyink-aarch64-apple-darwin.tar.xz"
-      sha256 "ed7cc1df465e40b28383e811a1f74d964a4b66c4800a882c4267b39425e91bb6"
+      url "https://github.com/arjunkomath/RustyInk/releases/download/v0.4.0/rustyink-aarch64-apple-darwin.tar.xz"
+      sha256 "7f14696ab32ed930b373e246d8018393ea77403cdd6ee06ae3c3816b967758d6"
     end
     if Hardware::CPU.intel?
-      url "https://github.com/arjunkomath/RustyInk/releases/download/v0.3.1/rustyink-x86_64-apple-darwin.tar.xz"
-      sha256 "6318b4425216e541619ca6af6ac7cf249732b3cae327be38f883c9526f9985f5"
+      url "https://github.com/arjunkomath/RustyInk/releases/download/v0.4.0/rustyink-x86_64-apple-darwin.tar.xz"
+      sha256 "8138d2a38fa6e8cee09a8de875d865ba0ada4ee8e37055976c29c4248a5dde7e"
     end
   end
   if OS.linux?
     if Hardware::CPU.arm?
-      url "https://github.com/arjunkomath/RustyInk/releases/download/v0.3.1/rustyink-aarch64-unknown-linux-gnu.tar.xz"
-      sha256 "f2a1d4bf9af42c22886d646623b06ca99029414b9921147ef19476f7325ca76a"
+      url "https://github.com/arjunkomath/RustyInk/releases/download/v0.4.0/rustyink-aarch64-unknown-linux-gnu.tar.xz"
+      sha256 "789207ea799d99b21cb615ea3c66ffcfce1d5db19c6fc51dd07cfc9187f8c39e"
     end
     if Hardware::CPU.intel?
-      url "https://github.com/arjunkomath/RustyInk/releases/download/v0.3.1/rustyink-x86_64-unknown-linux-gnu.tar.xz"
-      sha256 "7e7e4052eca09691cf6e009b8e0cf1a7d5d9f7f3e9116903d89d82f76ad205ef"
+      url "https://github.com/arjunkomath/RustyInk/releases/download/v0.4.0/rustyink-x86_64-unknown-linux-gnu.tar.xz"
+      sha256 "cd4b2a582b067cb9998c3e092b2282d49bb1cc13e04e6eb9c724f913152aecd4"
     end
   end
   license any_of: ["MIT", "Apache-2.0"]
