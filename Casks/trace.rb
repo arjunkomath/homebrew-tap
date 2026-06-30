@@ -1,6 +1,6 @@
 cask "trace" do
-  version "1.11.0"
-  sha256 "631e1e30c16e5e4f966032f4f0b873ef7cf69cbbac24b7be4ce4ecd47c01f6ae"
+  version "1.12.0"
+  sha256 "e5281a131db78c05b16f3d35fdfaafaec6306be6ed2121402d00736270efd903"
 
   url "https://github.com/arjunkomath/trace/releases/download/v#{version}/Trace-#{version}.dmg",
       verified: "github.com/arjunkomath/trace/"
