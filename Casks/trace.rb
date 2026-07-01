@@ -2,8 +2,7 @@ cask "trace" do
   version "1.12.0"
   sha256 "e5281a131db78c05b16f3d35fdfaafaec6306be6ed2121402d00736270efd903"
 
-  url "https://github.com/arjunkomath/trace/releases/download/v#{version}/Trace-#{version}.dmg",
-      verified: "github.com/arjunkomath/trace/"
+  url "https://github.com/arjunkomath/trace/releases/download/v#{version}/Trace-#{version}.dmg"
   name "Trace"
   desc "Spotlight alternative and shortcut toolkit for macOS"
   homepage "https://github.com/arjunkomath/trace"
@@ -13,7 +12,7 @@ cask "trace" do
     strategy :github_latest
   end
 
-  depends_on macos: ">= :tahoe"
+  depends_on macos: :tahoe
 
   app "Trace.app"
 
