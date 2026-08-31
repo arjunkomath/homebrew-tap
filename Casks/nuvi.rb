@@ -17,6 +17,7 @@ cask "nuvi" do
   depends_on formula: "neovim"
 
   app "Nuvi.app"
+  binary "#{appdir}/Nuvi.app/Contents/MacOS/Nuvi", target: "nuvi"
 
   zap trash: "~/Library/Application Support/Nuvi"
 end
