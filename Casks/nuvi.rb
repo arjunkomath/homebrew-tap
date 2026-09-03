@@ -1,6 +1,6 @@
 cask "nuvi" do
-  version "0.3.0"
-  sha256 "6db964d7a381ab8ee7d325d4caceeca9766f9df87357d18a7df7e11c07b3d797"
+  version "0.4.0"
+  sha256 "93656cf254f59c436e79130fd73f4c3fbf4ae06f9aba45c558bc601470fe1630"
 
   url "https://github.com/arjunkomath/Nuvi/releases/download/v#{version}/Nuvi-#{version}-macos-arm64.zip"
   name "Nuvi"
